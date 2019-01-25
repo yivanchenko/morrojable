@@ -1,0 +1,14 @@
+language: node_js
+node_js: 
+  - "10"
+branches:
+  only:
+    - test
+script: 
+  - ng build 
+install: 
+  - npm install 
+  - npm install -g firebase-tools
+  - npm install -g @angular/cli
+after_success: 
+  - firebase deploy --project morrojable-project --token 1/3yOlCvrRaulzCK8T08ljSvWmrej77Jdg2IYluPkrU5g
