@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Morrojable</h1>
+<form [formGroup]="loginForm">
+  <div mat-dialog-content>
+    <p>Please log in with your account:</p>
+    <mat-form-field style="width: 100%; padding-bottom: 10px;">
+      <input formControlName="email" matInput placeholder="Email address" tabindex="1" type="email">
+      <mat-error *ngIf="getErrors('email')?.required">Email is required</mat-error>
+      <mat-error *ngIf="getErrors('email')?.email">Enter a valid email</mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+      <input formControlName="password" matInput placeholder="Password" tabindex="2" type="password">
+      <mat-error *ngIf="getErrors('password')?.required">Password is required</mat-error>
+      <mat-error *ngIf="getErrors('password')?.minlength">Password must be at least 6 characters long</mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions style="float:left">
+    <button mat-flat-button color="accent" tabindex="5" (click)="onCancelClick()">Register</button>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="onCancelClick()" tabindex="4">Cancel</button>
+    <button mat-button (click)="onSubmitClick()" tabindex="3" cdkFocusInitial>Log in</button>
+  </div>
+</form>
